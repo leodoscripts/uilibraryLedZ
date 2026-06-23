@@ -1002,35 +1002,57 @@ function Util.Hoverable(button, normalColor, hoverColor, activeColor, duration)
     end
 end
 
+Util._activeDrag = nil
+Util._dragConnInit = false
+
+function Util.InitDragManager()
+    if Util._dragConnInit then return end
+    Util._dragConnInit = true
+    Util.Connect(UserInputService.InputChanged, function(input)
+        if not Util._activeDrag then return end
+        if input.UserInputType == Enum.UserInputType.MouseMovement
+        or input.UserInputType == Enum.UserInputType.Touch then
+            Util._activeDrag(input.Position)
+        end
+    end)
+    Util.Connect(UserInputService.InputEnded, function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1
+        or input.UserInputType == Enum.UserInputType.Touch then
+            Util._activeDrag = nil
+        end
+    end)
+end
+
+function Util.BeginDrag(updateFn)
+    Util.InitDragManager()
+    Util._activeDrag = updateFn
+end
+
+function Util.EndDrag()
+    Util._activeDrag = nil
+end
+
 function Util.MakeDraggable(handle, target, onDragEnd)
-    local dragging = false
     local dragStart, startPos
     Util.Connect(handle.InputBegan, function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1
         or input.UserInputType == Enum.UserInputType.Touch then
-            dragging = true
             dragStart = input.Position
             startPos = target.Position
+            Util.BeginDrag(function(pos)
+                local delta = pos - dragStart
+                target.Position = UDim2.new(
+                    startPos.X.Scale,
+                    startPos.X.Offset + delta.X,
+                    startPos.Y.Scale,
+                    startPos.Y.Offset + delta.Y
+                )
+            end)
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
                     if onDragEnd then pcall(onDragEnd, target.Position) end
                 end
             end)
-        end
-    end)
-    Util.Connect(UserInputService.InputChanged, function(input)
-        if dragging and (
-            input.UserInputType == Enum.UserInputType.MouseMovement or
-            input.UserInputType == Enum.UserInputType.Touch
-        ) then
-            local delta = input.Position - dragStart
-            target.Position = UDim2.new(
-                startPos.X.Scale,
-                startPos.X.Offset + delta.X,
-                startPos.Y.Scale,
-                startPos.Y.Offset + delta.Y
-            )
         end
     end)
 end
@@ -1252,8 +1274,8 @@ local function ensureNotifGui()
     local container = Instance.new("Frame")
     container.Name = "Container"
     container.BackgroundTransparency = 1
-    container.Size = UDim2.new(0, IsMobile and 280 or 340, 1, 0)
-    container.Position = UDim2.new(1, -(IsMobile and 290 or 350), 0, 0)
+    container.Size = UDim2.new(0, IsMobile and 250 or 300, 1, 0)
+    container.Position = UDim2.new(1, -(IsMobile and 260 or 310), 0, 0)
     container.Parent = gui
     LedZ.NotifContainer = container
     local layout = Instance.new("UIListLayout")
@@ -1271,11 +1293,11 @@ function LedZ:SetNotificationPosition(pos)
     if not self.NotifContainer then return end
     if pos == "BottomRight" then
         self.NotifContainer.AnchorPoint = Vector2.new(0, 0)
-        self.NotifContainer.Position = UDim2.new(1, -(IsMobile and 290 or 350), 0, 0)
+        self.NotifContainer.Position = UDim2.new(1, -(IsMobile and 260 or 310), 0, 0)
         self.NotifContainer.UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
         self.NotifContainer.UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
     elseif pos == "TopRight" then
-        self.NotifContainer.Position = UDim2.new(1, -(IsMobile and 290 or 350), 0, 0)
+        self.NotifContainer.Position = UDim2.new(1, -(IsMobile and 260 or 310), 0, 0)
         self.NotifContainer.UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
         self.NotifContainer.UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
     elseif pos == "BottomLeft" then
@@ -1319,7 +1341,7 @@ function LedZ:Notify(options)
         Clip = true,
     })
     card.AutomaticSize = Enum.AutomaticSize.Y
-    Util.Round(card, LedZ.Design.CornerMedium)
+    Util.Round(card, LedZ.Design.CornerLarge)
     local stroke = Util.Stroke(card, theme.Border)
     Util.Shadow(card, { Transparency = 0.7, OffsetY = 6, Size = 14 })
     local inner = Util.Frame(card, {
@@ -1329,12 +1351,14 @@ function LedZ:Notify(options)
         Name = "Inner",
     })
     inner.AutomaticSize = Enum.AutomaticSize.Y
-    Util.Pad(inner, { Top = 12, Bottom = 12, Left = 14, Right = 14 })
+    Util.Pad(inner, { Top = 11, Bottom = 11, Left = 13, Right = 13 })
     local bar = Util.Frame(card, {
         Color = typeColor,
-        Size = UDim2.new(0, 3, 1, 0),
+        Size = UDim2.new(0, 3, 1, -16),
+        Position = UDim2.new(0, 5, 0, 8),
         Name = "Bar",
     })
+    Util.Round(bar, UDim.new(1, 0))
     local iconImg = Util.Image(inner, {
         Image = typeIcon,
         Color = typeColor,
@@ -1989,17 +2013,38 @@ function LedZ:CreateWindow(options)
     screenGui.DisplayOrder = 100
     screenGui.IgnoreGuiInset = true
     screenGui.Parent = safeParent()
-    local mainFrame = Util.Frame(screenGui, {
-        Color = theme.WindowBG,
+    local rootHolder = Util.Frame(screenGui, {
+        Color = Color3.new(0,0,0),
+        Transparency = 1,
         Size = windowSize,
         Position = windowPos,
+        Clip = false,
+        Name = "Root",
+        ZIndex = 1,
+    })
+    local windowShadow = Instance.new("ImageLabel")
+    windowShadow.Name = "WindowShadow"
+    windowShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    windowShadow.BackgroundTransparency = 1
+    windowShadow.Image = "rbxassetid://6014261993"
+    windowShadow.ImageColor3 = theme.Shadow
+    windowShadow.ImageTransparency = 0.45
+    windowShadow.ScaleType = Enum.ScaleType.Slice
+    windowShadow.SliceCenter = Rect.new(49, 49, 450, 450)
+    windowShadow.Size = UDim2.new(1, 70, 1, 70)
+    windowShadow.Position = UDim2.new(0.5, 0, 0.5, 16)
+    windowShadow.ZIndex = 0
+    windowShadow.Parent = rootHolder
+    local mainFrame = Util.Frame(rootHolder, {
+        Color = theme.WindowBG,
+        Size = UDim2.new(1, 0, 1, 0),
+        Position = UDim2.new(0, 0, 0, 0),
         Clip = true,
         Name = "Window",
         ZIndex = 1,
     })
     Util.Round(mainFrame, LedZ.Design.CornerXLarge)
     local mainStroke = Util.Stroke(mainFrame, theme.Border, LedZ.Design.StrokeThin)
-    Util.Shadow(mainFrame, { Transparency = 0.55, OffsetY = 12, Size = 28 })
     Util.Gradient(mainFrame,
         { theme.WindowBGGradient, theme.WindowBG },
         90)
@@ -2008,6 +2053,14 @@ function LedZ:CreateWindow(options)
         Size = UDim2.new(1, 0, 0, LedZ.Design.HeightTitleBar),
         Position = UDim2.new(0, 0, 0, 0),
         Name = "Topbar",
+        ZIndex = 5,
+    })
+    Util.Round(topbar, LedZ.Design.CornerXLarge)
+    local topbarFiller = Util.Frame(topbar, {
+        Color = theme.TopbarBG,
+        Size = UDim2.new(1, 0, 0.5, 0),
+        Position = UDim2.new(0, 0, 0.5, 0),
+        Name = "Filler",
         ZIndex = 5,
     })
     local topbarBorder = Util.Frame(topbar, {
@@ -2125,6 +2178,21 @@ function LedZ:CreateWindow(options)
         Name = "Sidebar",
         ZIndex = 3,
     })
+    Util.Round(sidebarFrame, LedZ.Design.CornerXLarge)
+    local sidebarFiller = Util.Frame(sidebarFrame, {
+        Color = theme.SidebarBG,
+        Size = UDim2.new(1, 0, 1, -LedZ.Design.CornerXLarge.Offset),
+        Position = UDim2.new(0, 0, 0, 0),
+        Name = "TopFiller",
+        ZIndex = 3,
+    })
+    local sidebarFillerRight = Util.Frame(sidebarFrame, {
+        Color = theme.SidebarBG,
+        Size = UDim2.new(0, LedZ.Design.CornerXLarge.Offset, 1, 0),
+        Position = UDim2.new(1, -LedZ.Design.CornerXLarge.Offset, 0, 0),
+        Name = "RightFiller",
+        ZIndex = 3,
+    })
     local sidebarRightBorder = Util.Frame(sidebarFrame, {
         Color = theme.Border,
         Size = UDim2.new(0, 1, 1, 0),
@@ -2167,6 +2235,7 @@ function LedZ:CreateWindow(options)
     })
     local Window = {}
     Window._gui = screenGui
+    Window._root = rootHolder
     Window._main = mainFrame
     Window._topbar = topbar
     Window._sidebar = sidebarFrame
@@ -2209,7 +2278,7 @@ function LedZ:CreateWindow(options)
     local closeBtn = makeControlBtn("x", "Close", function()
         Window:Close()
     end)
-    Util.MakeDraggable(topbar, mainFrame)
+    Util.MakeDraggable(topbar, rootHolder)
     if showHomeIndicator and IsMobile then
         local homeIndicator = Util.Frame(screenGui, {
             Color = theme.Accent,
@@ -2258,43 +2327,30 @@ function LedZ:CreateWindow(options)
             Text = "",
             ZIndex = 101,
         })
-        local resizing = false
         local resizeStart = nil
         local sizeStart = nil
         Util.Connect(resizeBtn.InputBegan, function(input)
             if Util.PlatformInput(input) then
-                resizing = true
                 resizeStart = input.Position
-                sizeStart = mainFrame.Size
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then
-                        resizing = false
-                        Window._size = mainFrame.Size
-                    end
+                sizeStart = rootHolder.Size
+                Util.BeginDrag(function(pos)
+                    local delta = pos - resizeStart
+                    local newW = math.max(380, sizeStart.X.Offset + delta.X)
+                    local newH = math.max(240, sizeStart.Y.Offset + delta.Y)
+                    rootHolder.Size = UDim2.new(0, newW, 0, newH)
+                    Window._size = rootHolder.Size
                 end)
-            end
-        end)
-        Util.Connect(UserInputService.InputChanged, function(input)
-            if resizing and (
-                input.UserInputType == Enum.UserInputType.MouseMovement or
-                input.UserInputType == Enum.UserInputType.Touch
-            ) then
-                local delta = input.Position - resizeStart
-                local newW = math.max(380, sizeStart.X.Offset + delta.X)
-                local newH = math.max(240, sizeStart.Y.Offset + delta.Y)
-                mainFrame.Size = UDim2.new(0, newW, 0, newH)
-                Window._size = mainFrame.Size
             end
         end)
     end
     function Window:Minimize()
         if self._minimized then
             self._minimized = false
-            Util.Tween(self._main, { Size = self._size }, LedZ.Design.TweenNormal,
+            Util.Tween(self._root, { Size = self._size }, LedZ.Design.TweenNormal,
                 Enum.EasingStyle.Quart)
         else
             self._minimized = true
-            Util.Tween(self._main, {
+            Util.Tween(self._root, {
                 Size = UDim2.new(self._size.X.Scale, self._size.X.Offset,
                                  0, LedZ.Design.HeightTitleBar)
             }, LedZ.Design.TweenNormal, Enum.EasingStyle.Quart)
@@ -2302,29 +2358,23 @@ function LedZ:CreateWindow(options)
     end
     function Window:ToggleVisibility()
         self._hidden = not self._hidden
-        if self._hidden then
-            Util.Tween(self._main, { GroupTransparency = 1 }, 0.2)
-            self._main.Visible = false
-        else
-            self._main.Visible = true
-            self._main.GroupTransparency = 0
-        end
+        self._root.Visible = not self._hidden
     end
     function Window:Show()
         self._hidden = false
-        self._main.Visible = true
+        self._root.Visible = true
     end
     function Window:Hide()
         self._hidden = true
-        self._main.Visible = false
+        self._root.Visible = false
     end
     function Window:Close()
-        Util.Tween(self._main, {
-            Size = UDim2.new(self._size.X.Scale, self._size.X.Offset * 0.9,
-                             self._size.Y.Scale, self._size.Y.Offset * 0.9),
-            BackgroundTransparency = 1,
-        }, 0.25)
-        task.delay(0.3, function()
+        Util.Tween(self._root, {
+            Size = UDim2.new(self._size.X.Scale, self._size.X.Offset * 0.92,
+                             self._size.Y.Scale, self._size.Y.Offset * 0.92),
+        }, 0.22)
+        Util.Tween(self._main, { BackgroundTransparency = 1 }, 0.22)
+        task.delay(0.28, function()
             if self._gui and self._gui.Parent then
                 self._gui:Destroy()
             end
@@ -2557,7 +2607,7 @@ function LedZ:CreateWindow(options)
             Size = UDim2.new(0, 3, 0, 18) }, 0.3)
     end
     if showIntro then
-        mainFrame.Visible = false
+        rootHolder.Visible = false
         local intro = Util.Frame(screenGui, {
             Color = theme.WindowBG,
             Size = UDim2.new(0, 320, 0, 120),
@@ -2628,15 +2678,17 @@ function LedZ:CreateWindow(options)
             }, 0.3)
             task.delay(0.35, function()
                 if intro and intro.Parent then intro:Destroy() end
-                mainFrame.Visible = true
+                rootHolder.Visible = true
                 mainFrame.BackgroundTransparency = 1
-                local oSize = mainFrame.Size
-                mainFrame.Size = UDim2.new(oSize.X.Scale, oSize.X.Offset * 0.85,
-                                            oSize.Y.Scale, oSize.Y.Offset * 0.85)
-                Util.Tween(mainFrame, {
-                    BackgroundTransparency = 0,
+                local oSize = rootHolder.Size
+                rootHolder.Size = UDim2.new(oSize.X.Scale, oSize.X.Offset * 0.9,
+                                            oSize.Y.Scale, oSize.Y.Offset * 0.9)
+                Util.Tween(rootHolder, {
                     Size = oSize,
                 }, 0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+                Util.Tween(mainFrame, {
+                    BackgroundTransparency = 0,
+                }, 0.3)
             end)
         end)
     end
@@ -3188,7 +3240,6 @@ function LedZ:CreateWindow(options)
             Text = "",
             ZIndex = 7,
         })
-        local dragging = false
         local function getVal(inputPos)
             local abs = track.AbsolutePosition
             local size = track.AbsoluteSize
@@ -3197,25 +3248,12 @@ function LedZ:CreateWindow(options)
         end
         Util.Connect(hitArea.InputBegan, function(input)
             if Util.PlatformInput(input) then
-                dragging = true
-                local v = getVal(input.Position)
-                updateVisual(v, true)
+                updateVisual(getVal(input.Position), true)
                 pcall(sliderCallback, current)
-            end
-        end)
-        Util.Connect(hitArea.InputEnded, function(input)
-            if Util.PlatformInput(input) then
-                dragging = false
-            end
-        end)
-        Util.Connect(UserInputService.InputChanged, function(input)
-            if dragging and (
-                input.UserInputType == Enum.UserInputType.MouseMovement or
-                input.UserInputType == Enum.UserInputType.Touch
-            ) then
-                local v = getVal(input.Position)
-                updateVisual(v, false)
-                pcall(sliderCallback, current)
+                Util.BeginDrag(function(pos)
+                    updateVisual(getVal(pos), false)
+                    pcall(sliderCallback, current)
+                end)
             end
         end)
         Util.Connect(wrapper.MouseEnter, function()
@@ -3573,7 +3611,7 @@ function LedZ:CreateWindow(options)
         local key = opts.Flag or opts.Key
         local tooltip = opts.Tooltip
         local current = default
-        local height = multiLine and 90 or LedZ.Design.HeightElement
+        local height = multiLine and 100 or LedZ.Design.HeightElement
         local wrapper = Util.Frame(self._scroll, {
             Color = theme.ElementBG,
             Size = UDim2.new(1, 0, 0, height),
@@ -3598,28 +3636,31 @@ function LedZ:CreateWindow(options)
         local textLbl = Util.Label(wrapper, {
             Text = inputText,
             Color = theme.TextPrimary,
-            Size = LedZ.Design.TextNormal,
+            Size = LedZ.Design.TextMedium,
             Font = LedZ.Fonts.Label,
-            FrameSize = UDim2.new(0.4, -leftOffset, 0, 20),
-            Position = UDim2.new(0, leftOffset, 0, 8),
+            FrameSize = multiLine and UDim2.new(0.6, -leftOffset, 0, 20)
+                or UDim2.new(0.4, -leftOffset, 1, 0),
+            Position = multiLine and UDim2.new(0, leftOffset, 0, 10)
+                or UDim2.new(0, leftOffset, 0, 0),
             ZIndex = 4,
         })
         local inputBG = Util.Frame(wrapper, {
             Color = theme.InputBG,
-            Size = multiLine and UDim2.new(1, -24, 0, 60) or UDim2.new(0.5, -16, 0, 28),
-            Position = multiLine and UDim2.new(0, 12, 0, 30) or UDim2.new(0.5, 4, 0.5, -14),
+            Size = multiLine and UDim2.new(1, -24, 0, 64) or UDim2.new(0.5, -16, 0, 30),
+            Position = multiLine and UDim2.new(0, 12, 0, 32) or UDim2.new(0.5, 4, 0.5, -15),
             ZIndex = 4,
         })
         Util.Round(inputBG, LedZ.Design.CornerSmall)
         local inputStroke = Util.Stroke(inputBG, theme.Border)
+        local counterReserve = (maxChars and not multiLine) and 42 or 0
         local box = Util.TextBox(inputBG, {
             Text = current,
             Placeholder = placeholder,
             Color = theme.TextPrimary,
             Font = LedZ.Fonts.Body,
             Size = LedZ.Design.TextSmall,
-            FrameSize = UDim2.new(1, -16, 1, 0),
-            Position = UDim2.new(0, 8, 0, 0),
+            FrameSize = UDim2.new(1, -(16 + counterReserve), 1, 0),
+            Position = UDim2.new(0, 10, 0, 0),
             MultiLine = multiLine,
             Wrap = multiLine,
             ClearOnFocus = clearOnFocus,
@@ -3627,21 +3668,22 @@ function LedZ:CreateWindow(options)
             AlignY = multiLine and Enum.TextYAlignment.Top or Enum.TextYAlignment.Center,
         })
         if multiLine then
-            Util.Pad(inputBG, 6, 6, 6, 6)
-            box.Size = UDim2.new(1, -12, 1, -12)
-            box.Position = UDim2.new(0, 6, 0, 6)
+            Util.Pad(inputBG, 8, 8, 8, 8)
+            box.Size = UDim2.new(1, -16, 1, -16)
+            box.Position = UDim2.new(0, 8, 0, 8)
         end
         local charCounter
         if maxChars and not multiLine then
-            charCounter = Util.Label(wrapper, {
+            charCounter = Util.Label(inputBG, {
                 Text = #current .. "/" .. maxChars,
                 Color = theme.TextTertiary,
                 Size = LedZ.Design.TextTiny,
                 Font = LedZ.Fonts.Body,
-                FrameSize = UDim2.new(0, 50, 0, 14),
-                Position = UDim2.new(1, -60, 1, -16),
+                FrameSize = UDim2.new(0, 36, 1, 0),
+                Position = UDim2.new(1, -40, 0, 0),
                 AlignX = Enum.TextXAlignment.Right,
-                ZIndex = 4,
+                AlignY = Enum.TextYAlignment.Center,
+                ZIndex = 5,
             })
         end
         Util.Connect(box.Focused, function()
@@ -3989,7 +4031,6 @@ function LedZ:CreateWindow(options)
                 Text = "",
                 ZIndex = 64,
             })
-            local svDragging = false
             local function updateSV(pos)
                 local abs = svSquare.AbsolutePosition
                 local size = svSquare.AbsoluteSize
@@ -4000,19 +4041,8 @@ function LedZ:CreateWindow(options)
             end
             Util.Connect(svBtn.InputBegan, function(input)
                 if Util.PlatformInput(input) then
-                    svDragging = true
                     updateSV(input.Position)
-                end
-            end)
-            Util.Connect(svBtn.InputEnded, function(input)
-                if Util.PlatformInput(input) then svDragging = false end
-            end)
-            Util.Connect(UserInputService.InputChanged, function(input)
-                if svDragging and (
-                    input.UserInputType == Enum.UserInputType.MouseMovement or
-                    input.UserInputType == Enum.UserInputType.Touch
-                ) then
-                    updateSV(input.Position)
+                    Util.BeginDrag(updateSV)
                 end
             end)
             local hueStrip = Util.Frame(popup, {
@@ -4046,7 +4076,6 @@ function LedZ:CreateWindow(options)
                 Text = "",
                 ZIndex = 63,
             })
-            local hueDragging = false
             local function updateHue(pos)
                 local abs = hueStrip.AbsolutePosition
                 local size = hueStrip.AbsoluteSize
@@ -4057,19 +4086,8 @@ function LedZ:CreateWindow(options)
             end
             Util.Connect(hueBtn.InputBegan, function(input)
                 if Util.PlatformInput(input) then
-                    hueDragging = true
                     updateHue(input.Position)
-                end
-            end)
-            Util.Connect(hueBtn.InputEnded, function(input)
-                if Util.PlatformInput(input) then hueDragging = false end
-            end)
-            Util.Connect(UserInputService.InputChanged, function(input)
-                if hueDragging and (
-                    input.UserInputType == Enum.UserInputType.MouseMovement or
-                    input.UserInputType == Enum.UserInputType.Touch
-                ) then
-                    updateHue(input.Position)
+                    Util.BeginDrag(updateHue)
                 end
             end)
             local hexBG = Util.Frame(popup, {
