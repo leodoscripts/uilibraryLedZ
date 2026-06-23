@@ -291,376 +291,371 @@ LedZ.Themes = {
 LedZ.ActiveTheme = LedZ.Themes.Dark
 
 LedZ.Design = {
-    CornerSmall = UDim.new(0, 6),
-    CornerMedium = UDim.new(0, 8),
-    CornerLarge = UDim.new(0, 12),
-    CornerXLarge = UDim.new(0, 16),
+    CornerSmall = UDim.new(0, 8),
+    CornerMedium = UDim.new(0, 11),
+    CornerLarge = UDim.new(0, 15),
+    CornerXLarge = UDim.new(0, 20),
     CornerPill = UDim.new(1, 0),
     StrokeThin = 1,
     StrokeMedium = 1.5,
     StrokeThick = 2,
     SpacingTiny = 2,
-    SpacingSmall = 4,
+    SpacingSmall = 5,
     SpacingMedium = 8,
     SpacingLarge = 12,
     SpacingXLarge = 16,
     SpacingXXLarge = 24,
-    TweenFast = 0.12,
-    TweenNormal = 0.18,
-    TweenSlow = 0.28,
-    TweenSlower = 0.45,
-    TextTiny = 10,
-    TextSmall = 11,
-    TextNormal = 12,
-    TextMedium = 13,
-    TextLarge = 14,
-    TextXLarge = 16,
-    TextHeading = 18,
-    TextTitle = 22,
-    HeightElement = 36,
-    HeightElementLarge = 48,
-    HeightElementXLarge = 60,
-    HeightTitleBar = 46,
-    HeightTabButton = 36,
-    WidthSidebar = 145,
+    TweenFast = 0.13,
+    TweenNormal = 0.22,
+    TweenSlow = 0.34,
+    TweenSlower = 0.5,
+    SpringStyle = Enum.EasingStyle.Back,
+    SmoothStyle = Enum.EasingStyle.Quint,
+    TextTiny = 11,
+    TextSmall = 12,
+    TextNormal = 13,
+    TextMedium = 14,
+    TextLarge = 15,
+    TextXLarge = 17,
+    TextHeading = 19,
+    TextTitle = 23,
+    HeightElement = 42,
+    HeightElementLarge = 56,
+    HeightElementXLarge = 68,
+    HeightTitleBar = 52,
+    HeightTabButton = 40,
+    WidthSidebar = 162,
     WidthSidebarMobile = 0,
 }
 
 LedZ.Fonts = {
-    Display = Enum.Font.GothamBold,
-    Heading = Enum.Font.GothamBold,
-    Body = Enum.Font.Gotham,
-    Label = Enum.Font.GothamMedium,
-    Mono = Enum.Font.Code,
+    Display = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.Bold),
+    Heading = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.SemiBold),
+    Body = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.Medium),
+    Label = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.Medium),
+    Bold = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.Bold),
+    Light = Font.new("rbxasset://fonts/families/BuilderSans.json", Enum.FontWeight.Regular),
+    Mono = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Medium),
 }
 LedZ.Icons = {
-    home = "rbxassetid://10709790644",
+    activity = "rbxassetid://10709752035",
+    alert_circle = "rbxassetid://10709752996",
+    alert_triangle = "rbxassetid://10709753149",
+    aperture = "rbxassetid://10709761813",
+    apple = "rbxassetid://10709761889",
+    archive = "rbxassetid://10709762233",
+    arrow_down = "rbxassetid://10709767827",
+    arrow_down_left = "rbxassetid://10709767656",
+    arrow_left = "rbxassetid://10709768114",
+    arrow_right = "rbxassetid://10709768347",
+    arrow_up = "rbxassetid://10709768939",
+    arrow_up_right = "rbxassetid://10709768787",
+    at_sign = "rbxassetid://10709769286",
+    award = "rbxassetid://10709769406",
+    bag = "rbxassetid://10734952273",
+    bar_chart = "rbxassetid://10709770317",
+    battery = "rbxassetid://10709774640",
+    beer = "rbxassetid://10709775167",
+    bell = "rbxassetid://10709775704",
+    bell_off = "rbxassetid://10709775320",
+    bike = "rbxassetid://10709775894",
+    bluetooth = "rbxassetid://10709776655",
+    bold = "rbxassetid://10747813908",
+    bomb = "rbxassetid://10709781460",
+    bone = "rbxassetid://10709781605",
+    book = "rbxassetid://10709781824",
+    book_open = "rbxassetid://10709781717",
+    bookmark = "rbxassetid://10709782154",
+    box = "rbxassetid://10709782497",
+    brush = "rbxassetid://10709782758",
+    bug = "rbxassetid://10709782845",
+    cake = "rbxassetid://10709783217",
+    calendar = "rbxassetid://10709789505",
+    camera = "rbxassetid://10709789686",
+    car = "rbxassetid://10709789810",
+    carrot = "rbxassetid://10709789960",
+    cart = "rbxassetid://10734952479",
+    check = "rbxassetid://10709790644",
+    check_circle = "rbxassetid://10709790298",
+    cherry = "rbxassetid://10709790875",
+    chevron_down = "rbxassetid://10709790948",
+    chevron_left = "rbxassetid://10709791281",
+    chevron_right = "rbxassetid://10709791437",
+    chevron_up = "rbxassetid://10709791523",
+    chrome = "rbxassetid://10709797725",
+    circle = "rbxassetid://10709798174",
+    clipboard = "rbxassetid://10709799288",
+    clock = "rbxassetid://10709805144",
+    cloud = "rbxassetid://10709806740",
+    cloud_rain = "rbxassetid://10709806277",
+    code = "rbxassetid://10709810463",
+    coffee = "rbxassetid://10709810814",
+    cog = "rbxassetid://10709810948",
+    command = "rbxassetid://10709811365",
+    compass = "rbxassetid://10709811445",
+    cookie = "rbxassetid://10709812067",
+    copy = "rbxassetid://10709812159",
+    cpu = "rbxassetid://10709813383",
+    crosshair = "rbxassetid://10709818534",
+    crown = "rbxassetid://10709818626",
+    database = "rbxassetid://10709818996",
+    diamond = "rbxassetid://10709819149",
+    divide = "rbxassetid://10723343805",
+    dollar = "rbxassetid://10723343958",
+    coins = "rbxassetid://10709811110",
+    download = "rbxassetid://10723344270",
+    download_cloud = "rbxassetid://10723344088",
+    droplet = "rbxassetid://10723344432",
+    droplets = "rbxassetid://10734883356",
+    edit = "rbxassetid://10723345088",
+    egg = "rbxassetid://10723345518",
+    equal = "rbxassetid://10723345990",
+    expand = "rbxassetid://10723346553",
+    expand_y = "rbxassetid://10709797508",
+    external_link = "rbxassetid://10723346684",
+    eye = "rbxassetid://10723346959",
+    eye_off = "rbxassetid://10723346871",
+    fast_forward = "rbxassetid://10723354521",
+    feather = "rbxassetid://10723354671",
+    figma = "rbxassetid://10723354801",
+    file = "rbxassetid://10723374641",
+    file_text = "rbxassetid://10723367380",
+    filter = "rbxassetid://10723375128",
+    fingerprint = "rbxassetid://10723375250",
+    flag = "rbxassetid://10723375890",
+    flame = "rbxassetid://10723376114",
+    flashlight = "rbxassetid://10723376471",
+    flask = "rbxassetid://10734883986",
+    focus = "rbxassetid://10723377537",
+    folder = "rbxassetid://10723387563",
+    folder_open = "rbxassetid://10723386277",
+    framer = "rbxassetid://10723394565",
+    frown = "rbxassetid://10723394681",
+    gamepad = "rbxassetid://10723395215",
+    gauge = "rbxassetid://10723395708",
+    gem = "rbxassetid://10723396000",
+    ghost = "rbxassetid://10723396107",
+    gift = "rbxassetid://10723396402",
+    git_branch = "rbxassetid://10723396676",
+    git_commit = "rbxassetid://10723396812",
+    git_merge = "rbxassetid://10723397165",
+    git_pull_request = "rbxassetid://10723397431",
+    globe = "rbxassetid://10723404337",
+    grape = "rbxassetid://10723404822",
+    grid = "rbxassetid://10723404936",
+    grip_horizontal = "rbxassetid://10723405089",
+    grip_vertical = "rbxassetid://10723405236",
+    hammer = "rbxassetid://10723405360",
+    hard_drive = "rbxassetid://10723405749",
+    hash = "rbxassetid://10723405975",
+    headphones = "rbxassetid://10723406165",
+    heart = "rbxassetid://10723406885",
+    help = "rbxassetid://10723406988",
+    hexagon = "rbxassetid://10723407092",
+    home = "rbxassetid://10723407389",
+    hourglass = "rbxassetid://10723407498",
+    image = "rbxassetid://10723415040",
+    infinity = "rbxassetid://10723415766",
+    info = "rbxassetid://10723415903",
+    italic = "rbxassetid://10723416195",
+    key = "rbxassetid://10723416652",
+    keyboard = "rbxassetid://10723416765",
+    lamp = "rbxassetid://10723417513",
+    laptop = "rbxassetid://10723423881",
+    layers = "rbxassetid://10723424505",
+    layout = "rbxassetid://10723424646",
+    leaf = "rbxassetid://10723425539",
+    library = "rbxassetid://10723425615",
+    lightbulb = "rbxassetid://10723425852",
+    link = "rbxassetid://10723426722",
+    list = "rbxassetid://10723433811",
+    loader = "rbxassetid://10723433935",
+    lock = "rbxassetid://10723434711",
+    log_in = "rbxassetid://10723434830",
+    log_out = "rbxassetid://10723434906",
+    magnet = "rbxassetid://10723435069",
+    mail = "rbxassetid://10734885430",
+    map = "rbxassetid://10734886202",
+    map_pin = "rbxassetid://10734886004",
+    maximize = "rbxassetid://10734886496",
+    medal = "rbxassetid://10734887072",
+    meh = "rbxassetid://10734887603",
+    menu = "rbxassetid://10734887784",
+    message = "rbxassetid://10734888228",
+    message_circle = "rbxassetid://10734888000",
+    mic = "rbxassetid://10734888864",
+    mic_off = "rbxassetid://10734888646",
+    milestone = "rbxassetid://10734895310",
+    minimize = "rbxassetid://10734895530",
+    minus = "rbxassetid://10734896206",
+    minus_circle = "rbxassetid://10734895856",
+    monitor = "rbxassetid://10734896881",
+    moon = "rbxassetid://10734897102",
+    mouse = "rbxassetid://10734898194",
+    move = "rbxassetid://10734900011",
+    music = "rbxassetid://10734905958",
+    navigation = "rbxassetid://10734906744",
+    octagon = "rbxassetid://10734907361",
+    package = "rbxassetid://10734909540",
+    paintbrush = "rbxassetid://10734910187",
+    palette = "rbxassetid://10734910430",
+    paperclip = "rbxassetid://10734910927",
+    pause = "rbxassetid://10734919336",
+    pen = "rbxassetid://10734919503",
+    percent = "rbxassetid://10734919919",
+    phone = "rbxassetid://10734921524",
+    pie_chart = "rbxassetid://10734921727",
+    pin = "rbxassetid://10734922324",
+    pizza = "rbxassetid://10734922774",
+    plane = "rbxassetid://10734922971",
+    play = "rbxassetid://10734923549",
+    plus = "rbxassetid://10734924532",
+    plus_circle = "rbxassetid://10734923868",
+    power = "rbxassetid://10734930466",
+    radio = "rbxassetid://10734931596",
+    refresh = "rbxassetid://10734933222",
+    ["repeat"] = "rbxassetid://10734933966",
+    rewind = "rbxassetid://10734934347",
+    rocket = "rbxassetid://10734934585",
+    rotate_ccw = "rbxassetid://10734940376",
+    rotate_cw = "rbxassetid://10734940654",
+    rss = "rbxassetid://10734940825",
+    ruler = "rbxassetid://10734941018",
+    save = "rbxassetid://10734941499",
+    scan = "rbxassetid://10734942565",
+    scissors = "rbxassetid://10734942778",
+    scroll = "rbxassetid://10734943448",
+    search = "rbxassetid://10734943674",
+    send = "rbxassetid://10734943902",
+    server = "rbxassetid://10734949856",
     settings = "rbxassetid://10734950309",
-    user = "rbxassetid://10747384394",
-    users = "rbxassetid://10747384552",
-    search = "rbxassetid://10734898355",
-    menu = "rbxassetid://10734964141",
-    close = "rbxassetid://10747384394",
-    x = "rbxassetid://11293971901",
-    check = "rbxassetid://10747384552",
-    plus = "rbxassetid://10709768538",
-    minus = "rbxassetid://10709784149",
-    edit = "rbxassetid://10734895698",
-    trash = "rbxassetid://10734975702",
-    save = "rbxassetid://10734952368",
-    download = "rbxassetid://10723419017",
-    upload = "rbxassetid://10723344771",
-    copy = "rbxassetid://10734918676",
-    clipboard = "rbxassetid://10734918358",
-    folder = "rbxassetid://10734905956",
-    file = "rbxassetid://10734898355",
-    image = "rbxassetid://10734922734",
-    music = "rbxassetid://10734938415",
-    video = "rbxassetid://10734996193",
-    play = "rbxassetid://10734940006",
-    pause = "rbxassetid://10734937169",
-    stop = "rbxassetid://10734952368",
-    refresh = "rbxassetid://10734950309",
-    rotate = "rbxassetid://10734950309",
-    cw = "rbxassetid://10734950309",
-    ccw = "rbxassetid://10734950309",
-    arrow_up = "rbxassetid://10709790511",
-    arrow_down = "rbxassetid://10709790340",
-    arrow_left = "rbxassetid://10709790100",
-    arrow_right = "rbxassetid://10709790511",
-    chevron_up = "rbxassetid://10709769432",
-    chevron_down = "rbxassetid://10709769432",
-    chevron_left = "rbxassetid://10709769432",
-    chevron_right = "rbxassetid://10709769432",
-    chevrons_up_down = "rbxassetid://10709769432",
-    heart = "rbxassetid://10734921932",
-    star = "rbxassetid://10734952368",
-    bookmark = "rbxassetid://10734893341",
-    bell = "rbxassetid://10734893341",
-    bell_off = "rbxassetid://10734893341",
-    mail = "rbxassetid://10734924532",
-    message = "rbxassetid://10734932416",
-    send = "rbxassetid://10734952368",
-    phone = "rbxassetid://10734939971",
-    info = "rbxassetid://10723419017",
-    alert = "rbxassetid://10723415903",
-    alert_triangle = "rbxassetid://10723345826",
-    alert_circle = "rbxassetid://10723345509",
-    help = "rbxassetid://10723415903",
-    question = "rbxassetid://10723419017",
-    lock = "rbxassetid://10734922734",
-    unlock = "rbxassetid://10734996193",
-    key = "rbxassetid://10734921932",
-    shield = "rbxassetid://10734952368",
-    shield_check = "rbxassetid://10734952368",
-    shield_off = "rbxassetid://10734952368",
-    eye = "rbxassetid://10734895698",
-    eye_off = "rbxassetid://10734895698",
-    sun = "rbxassetid://10734968011",
-    moon = "rbxassetid://10734937169",
-    cloud = "rbxassetid://10734898355",
-    zap = "rbxassetid://10734996193",
-    flame = "rbxassetid://10734905080",
-    droplet = "rbxassetid://10734895698",
-    snowflake = "rbxassetid://10734952368",
-    wind = "rbxassetid://10734996193",
-    target = "rbxassetid://10734970988",
-    crosshair = "rbxassetid://10734918676",
-    compass = "rbxassetid://10734898355",
-    map = "rbxassetid://10734924532",
-    map_pin = "rbxassetid://10734924532",
-    navigation = "rbxassetid://10734938415",
-    globe = "rbxassetid://10734905956",
-    flag = "rbxassetid://10734905080",
-    code = "rbxassetid://10734898355",
-    terminal = "rbxassetid://10734970988",
-    command = "rbxassetid://10734898355",
-    cpu = "rbxassetid://10734918676",
-    monitor = "rbxassetid://10734937169",
-    smartphone = "rbxassetid://10734952368",
-    tablet = "rbxassetid://10734968011",
-    laptop = "rbxassetid://10734922734",
-    keyboard = "rbxassetid://10734921932",
-    mouse_pointer = "rbxassetid://10734938415",
-    gamepad = "rbxassetid://10734905956",
-    headphones = "rbxassetid://10734918358",
-    mic = "rbxassetid://10734932416",
-    mic_off = "rbxassetid://10734932416",
-    volume = "rbxassetid://10734996193",
-    volume_off = "rbxassetid://10734996193",
-    speaker = "rbxassetid://10734952368",
-    sword = "rbxassetid://10734968011",
-    swords = "rbxassetid://10734968011",
-    bomb = "rbxassetid://10734893341",
-    skull = "rbxassetid://10734952368",
-    ghost = "rbxassetid://10734905956",
-    crown = "rbxassetid://10734918676",
-    trophy = "rbxassetid://10734975702",
-    medal = "rbxassetid://10734924532",
-    award = "rbxassetid://10734893341",
-    gem = "rbxassetid://10734905080",
-    coin = "rbxassetid://10734898355",
-    dollar = "rbxassetid://10734895698",
-    credit_card = "rbxassetid://10734918676",
-    wallet = "rbxassetid://10734996193",
-    shopping_cart = "rbxassetid://10734952368",
-    shopping_bag = "rbxassetid://10734952368",
-    package = "rbxassetid://10734938415",
-    gift = "rbxassetid://10734905956",
-    box = "rbxassetid://10734893341",
-    archive = "rbxassetid://10734893341",
-    layers = "rbxassetid://10734921932",
-    layout = "rbxassetid://10734922734",
-    grid = "rbxassetid://10734905956",
-    list = "rbxassetid://10734922734",
-    columns = "rbxassetid://10734898355",
-    rows = "rbxassetid://10734952368",
-    sliders = "rbxassetid://10734952368",
-    filter = "rbxassetid://10734905080",
-    sort = "rbxassetid://10734952368",
-    sort_asc = "rbxassetid://10734952368",
-    sort_desc = "rbxassetid://10734952368",
-    activity = "rbxassetid://10734893341",
-    bar_chart = "rbxassetid://10734893341",
-    pie_chart = "rbxassetid://10734939971",
-    trending_up = "rbxassetid://10734975702",
-    trending_down = "rbxassetid://10734975702",
-    palette = "rbxassetid://10734939971",
-    droplets = "rbxassetid://10734895698",
-    paint = "rbxassetid://10734939971",
-    brush = "rbxassetid://10734893341",
-    pen = "rbxassetid://10734939971",
-    pencil = "rbxassetid://10734939971",
-    type_icon = "rbxassetid://10734975702",
-    bold = "rbxassetid://10734893341",
-    italic = "rbxassetid://10734921932",
-    underline = "rbxassetid://10734975702",
-    link = "rbxassetid://10734922734",
-    external_link = "rbxassetid://10734895698",
-    unlink = "rbxassetid://10734996193",
-    paperclip = "rbxassetid://10734939971",
-    hash = "rbxassetid://10734905956",
-    at_sign = "rbxassetid://10734893341",
-    percent = "rbxassetid://10734939971",
-    calendar = "rbxassetid://10734893341",
-    clock = "rbxassetid://10734898355",
-    watch = "rbxassetid://10734996193",
-    timer = "rbxassetid://10734970988",
-    hourglass = "rbxassetid://10734921932",
-    sunrise = "rbxassetid://10734968011",
-    sunset = "rbxassetid://10734968011",
-    book = "rbxassetid://10734893341",
-    book_open = "rbxassetid://10734893341",
-    bookmark_check = "rbxassetid://10734893341",
-    library = "rbxassetid://10734922734",
-    scroll = "rbxassetid://10734952368",
-    feather = "rbxassetid://10734905080",
-    server = "rbxassetid://10734952368",
-    database = "rbxassetid://10734895698",
-    hard_drive = "rbxassetid://10734918358",
-    cloud_upload = "rbxassetid://10734898355",
-    cloud_download = "rbxassetid://10734898355",
-    wifi = "rbxassetid://10734996193",
-    wifi_off = "rbxassetid://10734996193",
-    bluetooth = "rbxassetid://10734893341",
-    radio = "rbxassetid://10734939971",
-    rss = "rbxassetid://10734952368",
-    arrow_up_right = "rbxassetid://10709790511",
-    arrow_down_left = "rbxassetid://10709790340",
-    repeat_icon = "rbxassetid://10734950309",
-    shuffle = "rbxassetid://10734952368",
-    skip_forward = "rbxassetid://10734952368",
-    skip_back = "rbxassetid://10734952368",
-    fast_forward = "rbxassetid://10734905080",
-    rewind = "rbxassetid://10734950309",
-    minimize = "rbxassetid://10709784149",
-    maximize = "rbxassetid://10709768538",
-    expand = "rbxassetid://10734895698",
-    shrink = "rbxassetid://10734952368",
-    move = "rbxassetid://10734938415",
-    grip = "rbxassetid://10734905956",
-    grip_vertical = "rbxassetid://10734905956",
-    grip_horizontal = "rbxassetid://10734905956",
-    log_in = "rbxassetid://10734922734",
-    log_out = "rbxassetid://10734922734",
-    user_plus = "rbxassetid://10747384552",
-    user_minus = "rbxassetid://10747384552",
-    user_check = "rbxassetid://10747384552",
-    user_x = "rbxassetid://10747384552",
-    sparkles = "rbxassetid://10734952368",
-    wand = "rbxassetid://10734996193",
-    magic = "rbxassetid://10734924532",
-    coffee = "rbxassetid://10734898355",
-    pizza = "rbxassetid://10734939971",
-    cake = "rbxassetid://10734893341",
-    cookie = "rbxassetid://10734898355",
-    apple = "rbxassetid://10734893341",
-    car = "rbxassetid://10734893341",
-    bike = "rbxassetid://10734893341",
-    plane = "rbxassetid://10734939971",
-    rocket = "rbxassetid://10734950309",
-    truck = "rbxassetid://10734975702",
-    ship = "rbxassetid://10734952368",
-    train = "rbxassetid://10734975702",
+    shield = "rbxassetid://10734951847",
+    shield_check = "rbxassetid://10734951367",
+    shield_off = "rbxassetid://10734951684",
+    shrink = "rbxassetid://10734953073",
+    shuffle = "rbxassetid://10734953451",
+    sigma = "rbxassetid://10734954538",
+    skip_back = "rbxassetid://10734961526",
+    skip_forward = "rbxassetid://10734961809",
+    skull = "rbxassetid://10734962068",
+    slack = "rbxassetid://10734962339",
+    sliders = "rbxassetid://10734963400",
+    smartphone = "rbxassetid://10734963940",
+    smile = "rbxassetid://10734964441",
+    snowflake = "rbxassetid://10734964600",
+    sort = "rbxassetid://10709768538",
+    sparkles = "rbxassetid://10747376349",
+    speaker = "rbxassetid://10734965419",
+    sprout = "rbxassetid://10734965572",
+    star = "rbxassetid://10734966248",
+    stop = "rbxassetid://10734965702",
+    sun = "rbxassetid://10734974297",
+    sunrise = "rbxassetid://10734974522",
+    sunset = "rbxassetid://10734974689",
+    sword = "rbxassetid://10734975486",
+    swords = "rbxassetid://10734975692",
+    tablet = "rbxassetid://10734976394",
+    tag = "rbxassetid://10734976528",
+    tags = "rbxassetid://10734976739",
+    target = "rbxassetid://10734977012",
+    terminal = "rbxassetid://10734982144",
+    thermometer = "rbxassetid://10734983134",
+    thumbs_down = "rbxassetid://10734983359",
+    thumbs_up = "rbxassetid://10734983629",
+    ticket = "rbxassetid://10734983868",
+    timer = "rbxassetid://10734984606",
+    tornado = "rbxassetid://10734985247",
+    train = "rbxassetid://10747362105",
+    trash = "rbxassetid://10747362241",
+    trending_down = "rbxassetid://10747363205",
+    trending_up = "rbxassetid://10747363465",
+    triangle = "rbxassetid://10747363621",
+    trophy = "rbxassetid://10747363809",
+    truck = "rbxassetid://10747364031",
+    type = "rbxassetid://10747364761",
+    umbrella = "rbxassetid://10747364971",
+    underline = "rbxassetid://10747365191",
+    unlink = "rbxassetid://10723426595",
+    unlock = "rbxassetid://10747366027",
+    upload = "rbxassetid://10747366434",
+    upload_cloud = "rbxassetid://10747366266",
+    user = "rbxassetid://10747373176",
+    user_check = "rbxassetid://10747371901",
+    user_minus = "rbxassetid://10747372346",
+    user_plus = "rbxassetid://10747372702",
+    user_x = "rbxassetid://10747372992",
+    users = "rbxassetid://10747373426",
+    utensils = "rbxassetid://10747373821",
+    video = "rbxassetid://10747374938",
+    volume = "rbxassetid://10747375679",
+    volume_off = "rbxassetid://10747375880",
+    wallet = "rbxassetid://10747376205",
+    wand = "rbxassetid://10747376565",
+    wand_2 = "rbxassetid://10747376349",
+    watch = "rbxassetid://10747376722",
+    wifi = "rbxassetid://10747382504",
+    wifi_off = "rbxassetid://10747382268",
+    wind = "rbxassetid://10747382750",
+    wrench = "rbxassetid://10747383470",
+    x = "rbxassetid://10747384394",
+    x_circle = "rbxassetid://10747383819",
+    zap = "rbxassetid://10709752035",
 }
-
 LedZ.IconAliases = {
-    home = "home",
-    house = "home",
-    config = "settings",
-    gear = "settings",
-    cog = "settings",
-    profile = "user",
-    account = "user",
-    person = "user",
-    people = "users",
-    group = "users",
-    find = "search",
-    magnifier = "search",
-    hamburger = "menu",
-    bars = "menu",
-    cancel = "x",
-    dismiss = "x",
-    ok = "check",
-    tick = "check",
-    add = "plus",
-    new = "plus",
-    remove = "minus",
-    subtract = "minus",
-    delete = "trash",
-    bin = "trash",
-    floppy = "save",
-    edit_pencil = "edit",
-    notification = "bell",
-    notifications = "bell",
-    alarm = "bell",
-    warning = "alert_triangle",
-    danger = "alert_circle",
-    error = "alert_circle",
-    info_circle = "info",
-    locked = "lock",
-    unlocked = "unlock",
-    security = "shield",
-    secure = "shield_check",
-    visible = "eye",
-    invisible = "eye_off",
-    show = "eye",
-    hide = "eye_off",
-    light = "sun",
-    dark = "moon",
-    energy = "zap",
-    fire = "flame",
-    water = "droplet",
-    ice = "snowflake",
-    location = "map_pin",
-    pin = "map_pin",
-    world = "globe",
-    source = "code",
-    console = "terminal",
-    pc = "monitor",
-    phone_device = "smartphone",
-    controller = "gamepad",
-    audio = "headphones",
-    microphone = "mic",
-    sound = "volume",
-    mute = "volume_off",
-    weapon = "sword",
-    explosive = "bomb",
-    death = "skull",
-    money = "dollar",
-    cash = "dollar",
-    card = "credit_card",
-    purse = "wallet",
-    cart = "shopping_cart",
-    bag = "shopping_bag",
-    parcel = "package",
-    present = "gift",
-    stats = "bar_chart",
-    chart = "bar_chart",
-    growth = "trending_up",
-    decline = "trending_down",
-    colors = "palette",
-    color = "palette",
-    paint_brush = "brush",
-    text = "type_icon",
-    url = "link",
-    attach = "paperclip",
-    tag = "hash",
-    email = "at_sign",
-    date = "calendar",
-    time = "clock",
-    stopwatch = "timer",
-    book_icon = "book",
-    docs = "library",
-    db = "database",
-    storage = "hard_drive",
-    upload_cloud = "cloud_upload",
-    download_cloud = "cloud_download",
-    network = "wifi",
-    bt = "bluetooth",
-    loop = "repeat_icon",
-    random = "shuffle",
-    next_track = "skip_forward",
-    prev_track = "skip_back",
-    minimize_btn = "minimize",
-    maximize_btn = "maximize",
-    fullscreen = "expand",
-    drag = "grip",
-    login = "log_in",
-    logout = "log_out",
-    signin = "log_in",
-    signout = "log_out",
-    sparkle = "sparkles",
-    wizard = "wand",
+    house = "home", config = "settings", gear = "settings", cog2 = "settings",
+    profile = "user", account = "user", person = "user", people = "users",
+    group = "users", find = "search", magnifier = "search", hamburger = "menu",
+    bars = "menu", cancel = "x", dismiss = "x", close = "x", ok = "check",
+    tick = "check", add = "plus", new = "plus", remove = "minus", subtract = "minus",
+    delete = "trash", bin = "trash", floppy = "save", pencil = "edit",
+    notification = "bell", notifications = "bell", alarm = "bell",
+    warning = "alert_triangle", danger = "alert_circle", error = "alert_circle",
+    info_circle = "info", question = "help", locked = "lock", unlocked = "unlock",
+    security = "shield", secure = "shield_check", visible = "eye", invisible = "eye_off",
+    show = "eye", hide = "eye_off", light = "sun", dark = "moon", energy = "zap",
+    fire = "flame", water = "droplet", ice = "snowflake", location = "map_pin",
+    world = "globe", source = "code", console = "terminal", pc = "monitor",
+    phone_device = "smartphone", controller = "gamepad", audio = "headphones",
+    microphone = "mic", sound = "volume", mute = "volume_off", weapon = "sword",
+    explosive = "bomb", death = "skull", money = "dollar", cash = "dollar",
+    card = "banknote", purse = "wallet", parcel = "package", present = "gift",
+    stats = "bar_chart", chart = "bar_chart", growth = "trending_up",
+    decline = "trending_down", colors = "palette", color = "palette",
+    paint = "paintbrush", text = "type", url = "link", attach = "paperclip",
+    email = "at_sign", date = "calendar", time = "clock", stopwatch = "timer",
+    docs = "library", db = "database", storage = "hard_drive", network = "wifi",
+    bt = "bluetooth", loop = "repeat", random = "shuffle", next_track = "skip_forward",
+    prev_track = "skip_back", fullscreen = "expand", drag = "grip_vertical",
+    login = "log_in", logout = "log_out", signin = "log_in", signout = "log_out",
+    sparkle = "sparkles", wizard = "wand", magic = "wand", spinner = "loader",
+    settings_gear = "settings", tool = "wrench", build = "hammer",
+    chevron = "chevron_right", back = "arrow_left", forward = "arrow_right",
+    up = "chevron_up", down = "chevron_down",
 }
 
 function LedZ:GetIcon(name)
     if not name then return nil end
-    if type(name) == "string" and name:match("^rbxasset") then
+    if type(name) ~= "string" then return nil end
+    if name:match("^rbxassetid://") or name:match("^rbxasset://") then
         return name
     end
-    local resolved = self.IconAliases[name] or name
-    return self.Icons[resolved]
+    if name:match("^%d+$") then
+        return "rbxassetid://" .. name
+    end
+    local key = name:lower():gsub("[%-%s]", "_")
+    local resolved = self.IconAliases[key] or key
+    return self.Icons[resolved] or self.Icons[key]
+end
+
+function LedZ:HasIcon(name)
+    return self:GetIcon(name) ~= nil
+end
+
+function LedZ:ListIcons()
+    local names = {}
+    for n in pairs(self.Icons) do table.insert(names, n) end
+    table.sort(names)
+    return names
 end
 local Util = {}
 
@@ -815,7 +810,7 @@ function Util.Label(parent, props)
     l.Text = props.Text or ""
     l.TextColor3 = props.Color or LedZ.ActiveTheme.TextPrimary
     l.TextSize = props.Size or LedZ.Design.TextNormal
-    l.Font = props.Font or LedZ.Fonts.Label
+    l.FontFace = props.Font or LedZ.Fonts.Label
     l.BackgroundTransparency = 1
     l.TextXAlignment = props.AlignX or Enum.TextXAlignment.Left
     l.TextYAlignment = props.AlignY or Enum.TextYAlignment.Center
@@ -840,7 +835,7 @@ function Util.Button(parent, props)
     b.Text = props.Text or ""
     b.TextColor3 = props.TextColor or LedZ.ActiveTheme.TextPrimary
     b.TextSize = props.Size or LedZ.Design.TextNormal
-    b.Font = props.Font or LedZ.Fonts.Label
+    b.FontFace = props.Font or LedZ.Fonts.Label
     b.BackgroundColor3 = props.Color or LedZ.ActiveTheme.ElementBG
     b.BackgroundTransparency = props.Transparency or 0
     b.BorderSizePixel = 0
@@ -871,6 +866,7 @@ function Util.Image(parent, props)
     i.Position = props.Position or UDim2.new(0, 0, 0, 0)
     i.AnchorPoint = props.Anchor or Vector2.new(0, 0)
     i.ScaleType = props.Scale or Enum.ScaleType.Fit
+    i.ResampleMode = Enum.ResamplerMode.Default
     i.ZIndex = props.ZIndex or 2
     i.Name = props.Name or "Icon"
     if props.LayoutOrder then i.LayoutOrder = props.LayoutOrder end
@@ -892,6 +888,7 @@ function Util.ImageButton(parent, props)
     i.Position = props.Position or UDim2.new(0, 0, 0, 0)
     i.AnchorPoint = props.Anchor or Vector2.new(0, 0)
     i.ScaleType = props.Scale or Enum.ScaleType.Fit
+    i.ResampleMode = Enum.ResamplerMode.Default
     i.ZIndex = props.ZIndex or 2
     i.Name = props.Name or "IconBtn"
     i.Active = true
@@ -931,7 +928,7 @@ function Util.TextBox(parent, props)
     t.PlaceholderColor3 = props.PlaceholderColor or LedZ.ActiveTheme.TextPlaceholder
     t.TextColor3 = props.Color or LedZ.ActiveTheme.TextPrimary
     t.TextSize = props.Size or LedZ.Design.TextNormal
-    t.Font = props.Font or LedZ.Fonts.Body
+    t.FontFace = props.Font or LedZ.Fonts.Body
     t.BackgroundColor3 = props.BGColor or Color3.new(0,0,0)
     t.BackgroundTransparency = props.BGTransparency or 1
     t.BorderSizePixel = 0
@@ -1162,6 +1159,79 @@ function Util.PlatformInput(input)
         or input.UserInputType == Enum.UserInputType.Touch
 end
 
+function Util.Spring(instance, properties, duration, overshoot)
+    if not instance or not instance.Parent then return nil end
+    local info = TweenInfo.new(
+        duration or LedZ.Design.TweenNormal,
+        Enum.EasingStyle.Back,
+        Enum.EasingDirection.Out
+    )
+    local existing = activeTweens[instance]
+    if existing then pcall(function() existing:Cancel() end) end
+    local t = TweenService:Create(instance, info, properties)
+    activeTweens[instance] = t
+    t:Play()
+    return t
+end
+
+function Util.Glow(parent, color, intensity)
+    local glow = Instance.new("ImageLabel")
+    glow.Name = "Glow"
+    glow.AnchorPoint = Vector2.new(0.5, 0.5)
+    glow.BackgroundTransparency = 1
+    glow.Image = "rbxassetid://5028857084"
+    glow.ImageColor3 = color or LedZ.ActiveTheme.Accent
+    glow.ImageTransparency = 1 - (intensity or 0.4)
+    glow.Size = UDim2.new(1, 24, 1, 24)
+    glow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    glow.ZIndex = (parent.ZIndex or 1) - 1
+    glow.Parent = parent
+    return glow
+end
+
+function Util.GradientStroke(parent, colorA, colorB, thickness, rotation)
+    local s = Instance.new("UIStroke")
+    s.Thickness = thickness or 1
+    s.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    s.LineJoinMode = Enum.LineJoinMode.Round
+    s.Parent = parent
+    local g = Instance.new("UIGradient")
+    g.Color = ColorSequence.new(colorA, colorB)
+    g.Rotation = rotation or 90
+    g.Parent = s
+    return s, g
+end
+
+function Util.Acrylic(parent)
+    local ok = pcall(function()
+        local blur = Instance.new("BlurEffect")
+        blur.Size = 0
+        blur.Parent = Lighting
+        return blur
+    end)
+    local tint = Util.Frame(parent, {
+        Color = LedZ.ActiveTheme.AcrylicTint,
+        Transparency = 0.35,
+        Size = UDim2.new(1, 0, 1, 0),
+        Name = "AcrylicTint",
+        ZIndex = (parent.ZIndex or 1),
+    })
+    return tint
+end
+
+function Util.SetText(inst, text)
+    inst.Text = text
+end
+
+function Util.PulseGlow(glow, baseTransparency)
+    local up = true
+    return Util.Connect(RunService.Heartbeat, function()
+        local target = up and baseTransparency or baseTransparency + 0.25
+        glow.ImageTransparency = Util.Lerp(glow.ImageTransparency, target, 0.04)
+        if math.abs(glow.ImageTransparency - target) < 0.02 then up = not up end
+    end)
+end
+
 LedZ.Util = Util
 LedZ.NotifQueue = {}
 LedZ.NotifContainer = nil
@@ -1249,7 +1319,7 @@ function LedZ:Notify(options)
         Clip = true,
     })
     card.AutomaticSize = Enum.AutomaticSize.Y
-    Util.Round(card, UDim.new(0, 10))
+    Util.Round(card, LedZ.Design.CornerMedium)
     local stroke = Util.Stroke(card, theme.Border)
     Util.Shadow(card, { Transparency = 0.7, OffsetY = 6, Size = 14 })
     local inner = Util.Frame(card, {
@@ -1321,7 +1391,7 @@ function LedZ:Notify(options)
                 FrameSize = UDim2.new(0, 70, 0, 26),
                 Name = "Act",
             })
-            Util.Round(actBtn, UDim.new(0, 5))
+            Util.Round(actBtn, LedZ.Design.CornerSmall)
             Util.Connect(actBtn.MouseButton1Click, function()
                 if action.Callback then pcall(action.Callback) end
                 card:Destroy()
@@ -1426,7 +1496,7 @@ function LedZ:Dialog(options)
         Clip = true,
     })
     card.AutomaticSize = Enum.AutomaticSize.Y
-    Util.Round(card, UDim.new(0, 12))
+    Util.Round(card, LedZ.Design.CornerLarge)
     Util.Stroke(card, theme.Border)
     Util.Shadow(card, { Transparency = 0.5, OffsetY = 8, Size = 24 })
     local inner = Util.Frame(card, {
@@ -1512,7 +1582,7 @@ function LedZ:Dialog(options)
             FrameSize = UDim2.new(0, math.max(70, btnText:len() * 8 + 20), 0, 32),
             Name = "Btn_" .. i,
         })
-        Util.Round(btn, UDim.new(0, 6))
+        Util.Round(btn, LedZ.Design.CornerSmall)
         if not isPrimary and not isDanger then
             Util.Stroke(btn, theme.Border)
         end
@@ -1577,7 +1647,7 @@ function LedZ:Prompt(options)
         Name = "Prompt",
         ZIndex = 16,
     })
-    Util.Round(card, UDim.new(0, 12))
+    Util.Round(card, LedZ.Design.CornerLarge)
     Util.Stroke(card, theme.Border)
     Util.Shadow(card, { Transparency = 0.5, OffsetY = 8, Size = 24 })
     Util.Label(card, {
@@ -1595,7 +1665,7 @@ function LedZ:Prompt(options)
         Position = UDim2.new(0, 20, 0, 52),
         ZIndex = 17,
     })
-    Util.Round(inputBG, UDim.new(0, 6))
+    Util.Round(inputBG, LedZ.Design.CornerSmall)
     Util.Stroke(inputBG, theme.Border)
     local box = Util.TextBox(inputBG, {
         Text = default,
@@ -1629,7 +1699,7 @@ function LedZ:Prompt(options)
         FrameSize = UDim2.new(0, 80, 0, 32),
         ZIndex = 18,
     })
-    Util.Round(cancelBtn, UDim.new(0, 6))
+    Util.Round(cancelBtn, LedZ.Design.CornerSmall)
     Util.Stroke(cancelBtn, theme.Border)
     Util.Hoverable(cancelBtn, theme.ElementBG, theme.ElementHover, theme.ElementHover)
     local confirmBtn = Util.Button(btnRow, {
@@ -1641,7 +1711,7 @@ function LedZ:Prompt(options)
         FrameSize = UDim2.new(0, 90, 0, 32),
         ZIndex = 18,
     })
-    Util.Round(confirmBtn, UDim.new(0, 6))
+    Util.Round(confirmBtn, LedZ.Design.CornerSmall)
     Util.Hoverable(confirmBtn, theme.Accent, theme.AccentHover, theme.AccentHover)
     Util.Connect(cancelBtn.MouseButton1Click, function()
         if options.OnCancel then pcall(options.OnCancel) end
@@ -1685,7 +1755,7 @@ local function ensureTooltip()
     })
     frame.AutomaticSize = Enum.AutomaticSize.X
     frame.Visible = false
-    Util.Round(frame, UDim.new(0, 6))
+    Util.Round(frame, LedZ.Design.CornerSmall)
     Util.Stroke(frame, theme.Border)
     Util.Pad(frame, { Top = 6, Bottom = 6, Left = 10, Right = 10 })
     LedZ.TooltipFrame = frame
@@ -1927,7 +1997,7 @@ function LedZ:CreateWindow(options)
         Name = "Window",
         ZIndex = 1,
     })
-    Util.Round(mainFrame, LedZ.Design.CornerLarge)
+    Util.Round(mainFrame, LedZ.Design.CornerXLarge)
     local mainStroke = Util.Stroke(mainFrame, theme.Border, LedZ.Design.StrokeThin)
     Util.Shadow(mainFrame, { Transparency = 0.55, OffsetY = 12, Size = 28 })
     Util.Gradient(mainFrame,
@@ -1947,36 +2017,56 @@ function LedZ:CreateWindow(options)
         Name = "BottomBorder",
         ZIndex = 6,
     })
-    local logoOffsetX = 16
+    local logoOffsetX = 18
     if logo then
-        local logoImg = Util.Image(topbar, {
-            Image = self:GetIcon(logo) or logo,
-            Color = theme.Accent,
-            Size = UDim2.new(0, 22, 0, 22),
-            Position = UDim2.new(0, 14, 0.5, -11),
-            Name = "Logo",
+        local logoBox = Util.Frame(topbar, {
+            Color = theme.AccentDim,
+            Size = UDim2.new(0, 34, 0, 34),
+            Position = UDim2.new(0, 14, 0.5, -17),
+            Name = "LogoBox",
             ZIndex = 6,
         })
-        logoOffsetX = 44
+        Util.Round(logoBox, LedZ.Design.CornerSmall)
+        Util.Stroke(logoBox, theme.Accent, 1, 0.4)
+        Util.Gradient(logoBox, { theme.AccentDim, theme.WindowBG }, 135)
+        local logoImg = Util.Image(logoBox, {
+            Image = self:GetIcon(logo) or logo,
+            Color = theme.AccentGlow,
+            Size = UDim2.new(0, 19, 0, 19),
+            Position = UDim2.new(0.5, -9.5, 0.5, -9.5),
+            Name = "Logo",
+            ZIndex = 7,
+        })
+        logoOffsetX = 58
     else
-        local dot = Util.Frame(topbar, {
-            Color = theme.Accent,
-            Size = UDim2.new(0, 8, 0, 8),
-            Position = UDim2.new(0, 16, 0.5, -4),
-            Name = "Dot",
+        local logoBox = Util.Frame(topbar, {
+            Color = theme.AccentDim,
+            Size = UDim2.new(0, 34, 0, 34),
+            Position = UDim2.new(0, 14, 0.5, -17),
+            Name = "LogoBox",
             ZIndex = 6,
+        })
+        Util.Round(logoBox, LedZ.Design.CornerSmall)
+        Util.Stroke(logoBox, theme.Accent, 1, 0.4)
+        Util.Gradient(logoBox, { theme.AccentDim, theme.WindowBG }, 135)
+        local dot = Util.Frame(logoBox, {
+            Color = theme.AccentGlow,
+            Size = UDim2.new(0, 11, 0, 11),
+            Position = UDim2.new(0.5, -5.5, 0.5, -5.5),
+            Name = "Dot",
+            ZIndex = 7,
         })
         Util.Round(dot, UDim.new(1, 0))
-        Util.Stroke(dot, theme.AccentGlow, 1, 0.7)
-        logoOffsetX = 32
+        Util.Glow(dot, theme.Accent, 0.5)
+        logoOffsetX = 58
     end
     local titleLbl = Util.Label(topbar, {
         Text = title,
         Color = theme.TextPrimary,
         Size = LedZ.Design.TextLarge,
         Font = LedZ.Fonts.Heading,
-        FrameSize = UDim2.new(0, 280, 0, subtitle == "" and 46 or 22),
-        Position = UDim2.new(0, logoOffsetX, 0, subtitle == "" and 0 or 6),
+        FrameSize = UDim2.new(0, 280, 0, subtitle == "" and 52 or 22),
+        Position = UDim2.new(0, logoOffsetX, 0, subtitle == "" and 0 or 9),
         Name = "Title",
         ZIndex = 6,
     })
@@ -1987,7 +2077,7 @@ function LedZ:CreateWindow(options)
             Size = LedZ.Design.TextSmall,
             Font = LedZ.Fonts.Body,
             FrameSize = UDim2.new(0, 280, 0, 18),
-            Position = UDim2.new(0, logoOffsetX, 0, 24),
+            Position = UDim2.new(0, logoOffsetX, 0, 28),
             Name = "Subtitle",
             ZIndex = 6,
         })
@@ -2013,7 +2103,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 7,
             Name = icon,
         })
-        Util.Round(btn, UDim.new(0, 5))
+        Util.Round(btn, LedZ.Design.CornerSmall)
         Util.Connect(btn.MouseEnter, function()
             Util.Tween(btn, { BackgroundTransparency = 0.85, ImageColor3 = theme.TextPrimary }, 0.12)
         end)
@@ -2302,7 +2392,7 @@ function LedZ:CreateWindow(options)
             Name = "Tab_" .. tabName,
             ZIndex = 4,
         })
-        Util.Round(tabBtn, UDim.new(0, 6))
+        Util.Round(tabBtn, LedZ.Design.CornerMedium)
         tabBtn.LayoutOrder = order
         local indicator = Util.Frame(tabBtn, {
             Color = theme.Accent,
@@ -2329,7 +2419,7 @@ function LedZ:CreateWindow(options)
         local labelLbl = Util.Label(tabBtn, {
             Text = tabName,
             Color = theme.TextSecondary,
-            Size = LedZ.Design.TextNormal,
+            Size = LedZ.Design.TextMedium,
             Font = LedZ.Fonts.Label,
             FrameSize = UDim2.new(1, -(textStart + 8), 1, 0),
             Position = UDim2.new(0, textStart, 0, 0),
@@ -2443,23 +2533,28 @@ function LedZ:CreateWindow(options)
         if self._activeTab then
             local prev = self._activeTab
             prev._page.Visible = false
-            Util.Tween(prev._btn, { BackgroundTransparency = 1 }, 0.15)
-            Util.Tween(prev._label, { TextColor3 = theme.TextSecondary }, 0.15)
+            prev._btn.BackgroundColor3 = theme.ElementHover
+            Util.Tween(prev._btn, { BackgroundTransparency = 1 }, 0.18)
+            Util.Tween(prev._label, { TextColor3 = theme.TextSecondary }, 0.18)
             if prev._icon then
-                Util.Tween(prev._icon, { ImageColor3 = theme.TextSecondary }, 0.15)
+                Util.Tween(prev._icon, { ImageColor3 = theme.TextSecondary }, 0.18)
             end
-            Util.Tween(prev._indicator, { BackgroundTransparency = 1 }, 0.15)
+            Util.Tween(prev._indicator, { BackgroundTransparency = 1,
+                Size = UDim2.new(0, 3, 0, 6) }, 0.18)
         end
         self._activeTab = tab
         tab._page.Visible = true
-        tab._page.Position = UDim2.new(0, 6, 0, 0)
-        Util.Tween(tab._page, { Position = UDim2.new(0, 0, 0, 0) }, 0.2)
-        Util.Tween(tab._btn, { BackgroundTransparency = 0.85 }, 0.15)
-        Util.Tween(tab._label, { TextColor3 = theme.TextPrimary }, 0.15)
+        tab._page.Position = UDim2.new(0, 8, 0, 0)
+        Util.Tween(tab._page, { Position = UDim2.new(0, 0, 0, 0) }, 0.28, LedZ.Design.SmoothStyle)
+        tab._btn.BackgroundColor3 = theme.Accent
+        Util.Tween(tab._btn, { BackgroundTransparency = 0.86 }, 0.18)
+        Util.Tween(tab._label, { TextColor3 = theme.TextPrimary }, 0.18)
         if tab._icon then
-            Util.Tween(tab._icon, { ImageColor3 = theme.Accent }, 0.15)
+            Util.Tween(tab._icon, { ImageColor3 = theme.Accent }, 0.18)
         end
-        Util.Tween(tab._indicator, { BackgroundTransparency = 0 }, 0.15)
+        tab._indicator.Size = UDim2.new(0, 3, 0, 6)
+        Util.Spring(tab._indicator, { BackgroundTransparency = 0,
+            Size = UDim2.new(0, 3, 0, 18) }, 0.3)
     end
     if showIntro then
         mainFrame.Visible = false
@@ -2470,7 +2565,7 @@ function LedZ:CreateWindow(options)
             Name = "Intro",
             ZIndex = 200,
         })
-        Util.Round(intro, UDim.new(0, 14))
+        Util.Round(intro, LedZ.Design.CornerXLarge)
         Util.Stroke(intro, theme.Border)
         Util.Shadow(intro, { Transparency = 0.5, OffsetY = 8, Size = 22 })
         Util.Gradient(intro, { theme.WindowBGGradient, theme.WindowBG }, 90)
@@ -2578,7 +2673,7 @@ function LedZ:CreateWindow(options)
         })
         section.AutomaticSize = Enum.AutomaticSize.Y
         section.LayoutOrder = self:NextOrder()
-        Util.Round(section, UDim.new(0, 8))
+        Util.Round(section, LedZ.Design.CornerLarge)
         Util.Stroke(section, theme.Border)
         Util.Pad(section, { Top = 12, Bottom = 12, Left = 12, Right = 12 })
         local headerFrame = Util.Frame(section, {
@@ -2673,7 +2768,7 @@ function LedZ:CreateWindow(options)
         })
         wrapper.AutomaticSize = Enum.AutomaticSize.Y
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         Util.Pad(wrapper, { Top = 10, Bottom = 10, Left = 12, Right = 12 })
         Util.ListLayout(wrapper, 4)
@@ -2762,7 +2857,7 @@ function LedZ:CreateWindow(options)
             Clip = true,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -2780,10 +2875,13 @@ function LedZ:CreateWindow(options)
         local textLbl = Util.Label(wrapper, {
             Text = btnText,
             Color = style == "primary" and Color3.new(1,1,1) or theme.TextPrimary,
-            Size = LedZ.Design.TextNormal,
+            Size = LedZ.Design.TextMedium,
             Font = LedZ.Fonts.Label,
-            FrameSize = UDim2.new(1, -(leftOffset + 28), 0, 20),
-            Position = UDim2.new(0, leftOffset, 0, btnDesc and 8 or (height/2 - 10)),
+            FrameSize = btnDesc and UDim2.new(1, -(leftOffset + 28), 0, 20)
+                or UDim2.new(1, -(leftOffset + 28), 1, 0),
+            Position = btnDesc and UDim2.new(0, leftOffset, 0, 9)
+                or UDim2.new(0, leftOffset, 0, 0),
+            AlignY = btnDesc and Enum.TextYAlignment.Center or Enum.TextYAlignment.Center,
             ZIndex = 4,
         })
         if btnDesc then
@@ -2793,7 +2891,7 @@ function LedZ:CreateWindow(options)
                 Size = LedZ.Design.TextSmall,
                 Font = LedZ.Fonts.Body,
                 FrameSize = UDim2.new(1, -(leftOffset + 28), 0, 14),
-                Position = UDim2.new(0, leftOffset, 0, 26),
+                Position = UDim2.new(0, leftOffset, 0, 30),
                 ZIndex = 4,
                 Name = "Desc",
             })
@@ -2873,7 +2971,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -2890,10 +2988,12 @@ function LedZ:CreateWindow(options)
         local textLbl = Util.Label(wrapper, {
             Text = toggleText,
             Color = theme.TextPrimary,
-            Size = LedZ.Design.TextNormal,
+            Size = LedZ.Design.TextMedium,
             Font = LedZ.Fonts.Label,
-            FrameSize = UDim2.new(1, -(leftOffset + 60), 0, 20),
-            Position = UDim2.new(0, leftOffset, 0, toggleDesc and 8 or (height/2 - 10)),
+            FrameSize = toggleDesc and UDim2.new(1, -(leftOffset + 60), 0, 20)
+                or UDim2.new(1, -(leftOffset + 60), 1, 0),
+            Position = toggleDesc and UDim2.new(0, leftOffset, 0, 9)
+                or UDim2.new(0, leftOffset, 0, 0),
             ZIndex = 4,
         })
         if toggleDesc then
@@ -2903,7 +3003,7 @@ function LedZ:CreateWindow(options)
                 Size = LedZ.Design.TextSmall,
                 Font = LedZ.Fonts.Body,
                 FrameSize = UDim2.new(1, -(leftOffset + 60), 0, 14),
-                Position = UDim2.new(0, leftOffset, 0, 26),
+                Position = UDim2.new(0, leftOffset, 0, 30),
                 ZIndex = 4,
             })
         end
@@ -3006,7 +3106,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -3036,7 +3136,7 @@ function LedZ:CreateWindow(options)
             Name = "ValueBG",
             ZIndex = 4,
         })
-        Util.Round(valBG, UDim.new(0, 4))
+        Util.Round(valBG, LedZ.Design.CornerSmall)
         local valLbl = Util.Label(valBG, {
             Text = sliderPrefix .. formatValue(current) .. sliderSuffix,
             Color = theme.Accent,
@@ -3170,7 +3270,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -3208,7 +3308,7 @@ function LedZ:CreateWindow(options)
             Position = UDim2.new(0.55, 0, 0.5, -12),
             ZIndex = 4,
         })
-        Util.Round(valBG, UDim.new(0, 5))
+        Util.Round(valBG, LedZ.Design.CornerSmall)
         Util.Stroke(valBG, theme.Border)
         local valLbl = Util.Label(valBG, {
             Text = formatSelected(),
@@ -3258,7 +3358,7 @@ function LedZ:CreateWindow(options)
                 ZIndex = 50,
                 Clip = true,
             })
-            Util.Round(popup, UDim.new(0, 6))
+            Util.Round(popup, LedZ.Design.CornerLarge)
             Util.Stroke(popup, theme.BorderHover)
             Util.Shadow(popup, { Transparency = 0.6, OffsetY = 6, Size = 14 })
             local searchBox
@@ -3269,7 +3369,7 @@ function LedZ:CreateWindow(options)
                     Position = UDim2.new(0, 4, 0, 4),
                     ZIndex = 51,
                 })
-                Util.Round(sBG, UDim.new(0, 4))
+                Util.Round(sBG, LedZ.Design.CornerSmall)
                 Util.Image(sBG, {
                     Image = self_ref:GetIcon("search"),
                     Color = theme.TextTertiary,
@@ -3316,7 +3416,7 @@ function LedZ:CreateWindow(options)
                             ZIndex = 52,
                             Name = "Item_" .. i,
                         })
-                        Util.Round(itemBtn, UDim.new(0, 4))
+                        Util.Round(itemBtn, LedZ.Design.CornerSmall)
                         itemBtn.LayoutOrder = i
                         if multi then
                             local checkBox = Util.Frame(itemBtn, {
@@ -3481,7 +3581,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -3510,7 +3610,7 @@ function LedZ:CreateWindow(options)
             Position = multiLine and UDim2.new(0, 12, 0, 30) or UDim2.new(0.5, 4, 0.5, -14),
             ZIndex = 4,
         })
-        Util.Round(inputBG, UDim.new(0, 5))
+        Util.Round(inputBG, LedZ.Design.CornerSmall)
         local inputStroke = Util.Stroke(inputBG, theme.Border)
         local box = Util.TextBox(inputBG, {
             Text = current,
@@ -3624,7 +3724,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -3653,7 +3753,7 @@ function LedZ:CreateWindow(options)
             Position = UDim2.new(1, -112, 0.5, -12),
             ZIndex = 4,
         })
-        Util.Round(kbBG, UDim.new(0, 5))
+        Util.Round(kbBG, LedZ.Design.CornerSmall)
         Util.Stroke(kbBG, theme.Border)
         local function keyName(k)
             if not k then return "None" end
@@ -3771,7 +3871,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local iconImg
         local leftOffset = 12
@@ -3800,7 +3900,7 @@ function LedZ:CreateWindow(options)
             Position = UDim2.new(1, -72, 0.5, -11),
             ZIndex = 4,
         })
-        Util.Round(swatch, UDim.new(0, 5))
+        Util.Round(swatch, LedZ.Design.CornerSmall)
         Util.Stroke(swatch, theme.Border, 1)
         local swatchBtn = Util.Button(swatch, {
             FrameSize = UDim2.new(1, 0, 1, 0),
@@ -3847,7 +3947,7 @@ function LedZ:CreateWindow(options)
                 ZIndex = 60,
                 Clip = true,
             })
-            Util.Round(popup, UDim.new(0, 8))
+            Util.Round(popup, LedZ.Design.CornerLarge)
             Util.Stroke(popup, theme.BorderHover)
             Util.Shadow(popup, { Transparency = 0.5, OffsetY = 6, Size = 16 })
             local svSquare = Util.Frame(popup, {
@@ -3978,7 +4078,7 @@ function LedZ:CreateWindow(options)
                 Position = UDim2.new(0, 10, 0, 160),
                 ZIndex = 61,
             })
-            Util.Round(hexBG, UDim.new(0, 4))
+            Util.Round(hexBG, LedZ.Design.CornerSmall)
             Util.Stroke(hexBG, theme.Border)
             Util.Label(hexBG, {
                 Text = "HEX",
@@ -4019,7 +4119,7 @@ function LedZ:CreateWindow(options)
                 Position = UDim2.new(0, 10, 0, 196),
                 ZIndex = 62,
             })
-            Util.Round(applyBtn, UDim.new(0, 5))
+            Util.Round(applyBtn, LedZ.Design.CornerSmall)
             Util.Hoverable(applyBtn, theme.Accent, theme.AccentHover, theme.AccentDim)
             Util.Connect(applyBtn.MouseButton1Click, function()
                 closePopup()
@@ -4078,7 +4178,7 @@ function LedZ:CreateWindow(options)
             ZIndex = 3,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         Util.Label(wrapper, {
             Text = pbText,
@@ -4146,7 +4246,7 @@ function LedZ:CreateWindow(options)
             Clip = true,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local img = Util.Image(wrapper, {
             Image = self_ref:GetIcon(imgSrc) or imgSrc,
@@ -4179,7 +4279,7 @@ function LedZ:CreateWindow(options)
             Clip = true,
         })
         wrapper.LayoutOrder = self:NextOrder()
-        Util.Round(wrapper, UDim.new(0, 6))
+        Util.Round(wrapper, LedZ.Design.CornerMedium)
         Util.Stroke(wrapper, theme.Border)
         local header = Util.Frame(wrapper, {
             Color = theme.SidebarBG,
